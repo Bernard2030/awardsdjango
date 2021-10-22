@@ -1,3 +1,4 @@
 virtual
-__pychache__
+__pycache__
 .env
+db.sqlite3
