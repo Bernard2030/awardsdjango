@@ -6,10 +6,12 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     url('^$',views.home,name = 'home'),
+
     path('comment/<int:id>/',views.comment,name='comment'),
     url(r'^search/',views.search_results,name = 'search_results'),
-    path('profile/',views.profile,name = 'profile'),
+    url(r'^singleproject/(\d+)',views.single_project,name='singleproject'),
     path('rate/<int:id>/',views.rates,name='rates'),
+    
 ]
 
 if settings.DEBUG:

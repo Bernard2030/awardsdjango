@@ -1,5 +1,21 @@
 {% extends 'base.html' %} {% load bootstrap4 %}
 {% block content %}
-
+<div class="container">
+    <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card">
+                  <h1>{{my_projects.title}}</h1>
+                <img src="{{my_projects.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{my_projects.user}}} </h5>
+                  <p class="card-text">{{my_projects.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>  <!--end of row -->
+    <div class="row"></div>
+</div>
 
 {% endblock %}
