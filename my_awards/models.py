@@ -11,7 +11,7 @@ class Profile(models.Model):
     information = models.TextField(max_length=1500)
 
     def __str__(self):
-        return self.username
+        return self.bio
 
     def save_profile(self):
         self.save()
@@ -62,7 +62,10 @@ class Rates(models.Model):
     my_projects_id = models.ForeignKey(My_projects, on_delete=models.CASCADE)
     userbility = models.IntegerField(default=1)
     design = models.IntegerField(default=1)
-    content = models.IntegerField(default=1)                      
+    content = models.IntegerField(default=1) 
+
+    
+
 
 
 class Comments(models.Model):
