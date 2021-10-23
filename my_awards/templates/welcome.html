@@ -2,28 +2,61 @@
 
 
 {% block content %}
-<h1>Welcome to my Awards</h1>
+<h1 class="text-center">Welcome to my Awards</h1>
 
 
 <!-- Top content -->
 
-<div class="container">
-    {% for pro in all_my_projects%}
-    <div class="card" style="width: 18rem;">
-        <img src="{{pro.image.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{pro.title}}</h5>
-          <a href="#"></a>
-          <p class="card-text">{{pro.description}}</p>
-          <a href="{{pro.links}}" class="btn btn-primary">{{pro.links}}</a><br>
-          <a href="#" class="btn btn-outline-success">profile</a>
-          <a href="{% url 'comment' pro.id %}" class="btn btn-outline-success">comment</a>
-          <p>Posted By: {{pro.user}}</p>
-        </div>
-      </div>
-      {% endfor %} 
+<div class="container" id="ben">
+    
+<div class="row g-2">
+              
+              
+{% for pro in all_my_projects%}
+<div class="card" style="width: 25rem;" >
+    <img src="{{pro.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{pro.title}}</h5>
+      <a href="#"></a>
+      <p class="card-text">{{pro.description}}</p>
+      <a href="{{pro.links}}" class="btn btn-primary">{{pro.links}}</a><br><br>
+      <hr>
+      <a href="{% url 'rates' pro.id %}" class="btn btn-outline-success">profile</a>
+      <a href="{% url 'comment' pro.id %}" class="btn btn-outline-success" style="padding: 5px;">comment</a>
+      <p>Posted By: {{pro.user}}</p>
+    </div>
+    
+  </div>
+  
+  {% endfor %} 
+              <div class="col-6">
+                <div class="p-3 border bg-light">
+                    
+                </div>
+              </div>
+            </div>
+    
+    
 </div>
 
 
+<style>
+#ben{
+    margin-left: 15%;
+    
+}
+.card{
+    padding: 20px;
+}
+</style>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+

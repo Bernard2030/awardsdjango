@@ -81,17 +81,17 @@ def comment(request,id):
 def rates(request,id):
     if request.method == 'POST':
         rates = Rates.objects.filter(id = id)
-        for rates in rates:
-            if rates.user == request.user:
-                messages.information(request,'you only rate once')
+        for rate in rates:
+            if rate.user == request.user:
+                messages.info(request,'you only rate once')
                 return redirect('singleproject',id)
 
             else:
-                messages.information(request,'Input all fields')
+                messages.info(request,'Input all fields')
                 return redirect('singleproject', id)
 
         else:
-            messages.information(request, 'Input all fields')
+            messages.info(request, 'Input all fields')
             return redirect('singleproject', id) 
 
 
