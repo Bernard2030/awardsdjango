@@ -29,6 +29,9 @@ class My_projects(models.Model):
     description = models.TextField(max_length=1500)
     links =models.URLField()
 
+    def __str__(self):
+        return self.title
+
     def save_my_projects(self):
         self.save()
 

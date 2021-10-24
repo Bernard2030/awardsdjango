@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render,redirect,get_object_or_404
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from my_awards.models import My_projects, Profile, Comments, Rates
+from .models import My_projects, Profile, Comments, Rates
 from django.contrib.auth.models import User
 from .forms import CommentForm, UpdateProfileForm, ProjectFormNew
 from django.contrib import messages
@@ -86,14 +86,28 @@ def rates(request,id):
                 messages.info(request,'you only rate once')
                 return redirect('singleproject',id)
 
-            else:
-                messages.info(request,'Input all fields')
-                return redirect('singleproject', id)
+
+        design = request.POST.get('design')
+        usability = request.POST.get('usability')
+        content = request.POST.get('content')
+
+        if design and usability and content:
+            project = My_projects.objects.get(id=id)
+            rate = Rates(design = design, usability = usability, content = content, my_project_id = project, user = request.user)
+            rate.save()
+            return redirect('singleproject',id)
+
 
         else:
             messages.info(request, 'Input all fields')
-            return redirect('singleproject', id) 
+            return redirect('singleproject',id)
 
+
+    else:
+        messages.info(request,'Input all fields')
+        return redirect('singleproject',id)            
+
+            
 
 
 @login_required(login_url='/accounts/login/')
