@@ -42,12 +42,12 @@ def my_projects_new(request):
 @login_required(login_url='/accounts/login/')
 def search_results(request):
 
-    if 'my_projects' in request.GET and request.GET['my_projects']:
-        search_term = request.GET.get('my_projects')
-        searched_my_projects = My_projects.search_my_projects(search_term)
+    if 'projects' in request.GET and request.GET['projects']:
+        search_term = request.GET.get('projects')
+        searched_projects = My_projects.search_projects(search_term)
         message = f'{search_term}'
 
-        return render(request, 'search.html', {'message':message, 'my_projects':searched_my_projects}) 
+        return render(request, 'search.html', {'message':message, 'my_projects':searched_projects}) 
 
     else:
         message = 'you have not entered anything to search'
