@@ -60,7 +60,7 @@ class My_projects(models.Model):
 class Rates(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
     my_projects_id = models.ForeignKey(My_projects, on_delete=models.CASCADE)
-    userbility = models.IntegerField(default=1)
+    usability = models.IntegerField(default=1)
     design = models.IntegerField(default=1)
     content = models.IntegerField(default=1) 
 

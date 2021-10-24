@@ -126,7 +126,7 @@ def update_profile(request):
 
 @login_required(login_url='/accounts/login/')
 def single_project(request,id):
-    my_projects = My_projects.objects.get(id=id)
+    projects = My_projects.objects.get(id=id)
     comments = Comments.objects.filter(my_projects_id =id)
     rates = Rates.objects.filter(my_projects_id =id)
     designrate = []
@@ -142,14 +142,14 @@ def single_project(request,id):
         design =round(sum(designrate)/total*100,1)
         usability =round(sum(usabilityrate)/total*100,1)
         content = round(sum(contentrate)/total*100,1)
-        return render(request,'singleproject.html',{'my_projects':my_projects, 'comments':comments, 'design':design, 'usability':usability, 'content':content}) 
+        return render(request,'singleproject.html',{'projects':projects, 'comments':comments, 'design':design, 'usability':usability, 'content':content}) 
 
     else:
         design = 0
         usability = 0
         content = 0
 
-        return render(request,'singleproject.html', {'my_projects':my_projects,'comments':comments,'design':design, 'usability':usability,'content':content})       
+        return render(request,'singleproject.html', {'projects':projects,'comments':comments,'design':design, 'usability':usability,'content':content})       
 
 
 
