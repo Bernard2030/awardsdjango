@@ -24,19 +24,19 @@ def profile(request):
 
 
 @login_required(login_url='/accounts/login/')
-def my_projects_new(request):
+def projects_new(request):
     if request.method=='POST':
         form = ProjectFormNew(request.POST, request.FILES)
         if form.is_valid():
-            my_projects = form.save(commit = False)
-            my_projects.user = request.user
-            my_projects.save()
+            projects = form.save(commit = False)
+            projects.user = request.user
+            projects.save()
 
             return redirect('home')
 
     else:
         form = ProjectFormNew()
-    return render(request, 'project.html',{'form':form})
+    return render(request, 'new_project.html',{'form':form})
 
 
 @login_required(login_url='/accounts/login/')
