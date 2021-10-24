@@ -21,7 +21,7 @@
       <p class="card-text">{{pro.description}}</p>
       <a href="{{pro.links}}" class="btn btn-primary">{{pro.links}}</a><br><br>
       <hr>
-      <a href="{% url 'rates' pro.id %}" class="btn btn-outline-success">Reviews</a>
+      <a href="{% url 'rates' pro.id%}" class="btn btn-outline-success">Reviews</a>
       <a href="{% url 'comment' pro.id %}" class="btn btn-outline-success" style="padding: 5px;">comment</a>
       <p>Posted By: {{pro.user}}</p>
     </div>
@@ -47,6 +47,12 @@
 }
 .card{
     padding: 20px;
+}
+
+body{
+    background: url(https://upload.wikimedia.org/wikipedia/commons/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg)no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 </style>
 
