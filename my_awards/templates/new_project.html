@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load bootstrap4 %}     
+ {% block content %}
+
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <h3><b><u>Post on your timeline</u></b></h3>
+        <div class="card-body">
+            <form action="{% url 'newproject' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {% bootstrap_form form %}
+        <button>Upload</button></form>
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+ {% endblock  %}

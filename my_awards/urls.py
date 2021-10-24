@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'^search/',views.search_results,name = 'search_results'),
     url(r'^singleproject/(\d+)',views.single_project,name='singleproject'),
     path('rate/<int:id>/',views.rates,name='rates'),
+     url(r'^newproject/$',views.my_projects_new,name='newproject'),
     
 ]
 
