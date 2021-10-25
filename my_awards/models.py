@@ -8,7 +8,7 @@ class Profile(models.Model):
     image = CloudinaryField('image')
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     bio = models.TextField(max_length=1200)
-    information = models.TextField(max_length=1500)
+    info = models.TextField(max_length=1500)
 
     def __str__(self):
         return self.bio
