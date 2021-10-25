@@ -61,8 +61,11 @@ user story
 * View my profile page
 
 ## pictorial Discription
-<img src="image/start.png" alt="landing"/>
-<img src="image/comments.png" alt="landing"/>
+<img src="images/landingpage.png" alt="landing"/>
+<img src="images/singleimage.png" alt="singlepage"/>
+<img src="images/profile.png" alt="profile"/>
+<img src="images/restapi.png" alt="restapi"/>
+<img src="images/comments.png" alt="comments"/>
 
 	
 	
