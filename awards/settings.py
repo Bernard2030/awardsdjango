@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config,Csv
+
 
 # cloudinary
 import cloudinary
@@ -19,11 +21,13 @@ import cloudinary.uploader
 import cloudinary.api
 
 
+
+
 # adding config
-cloudinary.config( 
-  cloud_name = "bermard2030",
-  api_key = "372829562127799", 
-  api_secret = "-l-gRj-0LwQ7xLfnPWRE7DHfBu8",
+cloudinary.config(
+  cloud_name = config('CLOUDINARY_CLOUD_NAME'),
+  api_key = config('CLOUDINARY_API_KEY'),
+  api_secret = config('CLOUDINARY_API_SECRET'),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -55,6 +59,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'tinymce',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +124,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

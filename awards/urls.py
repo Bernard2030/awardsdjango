@@ -17,10 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views
+from rest_framework.authtoken.views import obtain_auth_token
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('my_awards.urls')),
     path('accounts/', include('registration.backends.simple.urls')),
     path('logout/', views.LogoutView.as_view(), {"next_page": '/'}),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^api-token-auth/', obtain_auth_token)
 ]
