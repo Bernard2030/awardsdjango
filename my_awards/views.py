@@ -1,10 +1,14 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from rest_framework import serializers
 from .models import My_projects, Profile, Comments, Rates
 from django.contrib.auth.models import User
 from .forms import CommentForm, UpdateProfileForm, ProjectFormNew
 from django.contrib import messages
 from django.contrib.auth import logout
+from rest_framework.views import APIview
+from rest_framework.response import Response
+from .serializers import ProfileSerializer, My_projectsSerializer
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -166,24 +170,17 @@ def single_project(request,id):
         return render(request,'singleproject.html', {'projects':projects,'comments':comments,'design':design, 'usability':usability,'content':content})       
 
 
+class ProfileView(APIview):
+    def get(self,request,format = None):
+        profile_all = Profile.objects.all()
+        serializers = ProfileSerializer(profile_all,many=True)
+        return Response(serializers.data)
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-     
-         
+class Myproject(APIview):
+    def get(self,request,format = None):
+        projects_all = My_projects.objects.all()
+        serializers = My_projectsSerializer(projects_all,many = True)
+        return Response(serializers.data)        
 
 
 

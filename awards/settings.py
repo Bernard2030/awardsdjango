@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'my_awards',
     'bootstrap4',
     'tinymce',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
