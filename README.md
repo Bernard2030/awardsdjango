@@ -3,6 +3,16 @@ Is an application that allows users to  view posted projects, post, rate or revi
 ## Author
 Bernard Opiyo
 
+## Setup Requirements
+* Git
+* Github
+* Django 3.2.8
+* PostgreSQL
+* Web-browser of your choice
+* pip
+* Python 3.8.10
+* Cloudinary (for image upload)
+
 ## Installation
 Use the following command to install all the requirement applications. pip freeze -r requirements.txt
 
@@ -36,8 +46,10 @@ After extracting the files,
 * Python3.8
 * Django 
 * rest_framework 
-* HTML5  
+* HTML5 
+* CSS 
 * Bootstrap5
+* PostgreSQL
 
 user story
 
